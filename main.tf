@@ -23,7 +23,9 @@ resource "azurerm_windows_web_app" "webappwindows" {
     ip_restriction_default_action     = var.ip_restriction_default_action
     scm_ip_restriction_default_action = var.scm_ip_restriction_default_action
     # Startup command
-    app_command_line = var.app_command_line
+    app_command_line                  = var.app_command_line
+    health_check_path                 = var.health_check_path
+    health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
 
 
     # Utilisation de l'UAI pour le pull d'images depuis ACR
@@ -156,7 +158,9 @@ resource "azurerm_windows_web_app_slot" "webappwindows_slot" {
     ip_restriction_default_action     = var.ip_restriction_default_action
     scm_ip_restriction_default_action = var.scm_ip_restriction_default_action
     # Startup command
-    app_command_line = var.app_command_line
+    app_command_line                  = var.app_command_line
+    health_check_path                 = var.health_check_path
+    health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
 
 
     # Utilisation de l'UAI pour le pull d'images depuis ACR

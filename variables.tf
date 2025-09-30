@@ -352,3 +352,15 @@ variable "auth_logout_endpoint" {
   description = "The endpoint to which logout requests should be made"
   default     = null
 }
+
+variable "health_check_path" {
+  type        = string
+  description = "health_check_path"
+  default     = null
+}
+
+variable "health_check_eviction_time_in_min" {
+  type        = number
+  description = "The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between 2 and 10. Only valid in conjunction with health_check_path."
+  default     = 5
+}

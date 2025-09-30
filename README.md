@@ -52,6 +52,8 @@ No requirements.
 | <a name="input_dotnet_version"></a> [dotnet\_version](#input\_dotnet\_version) | Version de dotnet installé | `string` | `null` | no |
 | <a name="input_enable_Microsoft_auth"></a> [enable\_Microsoft\_auth](#input\_enable\_Microsoft\_auth) | Active ou non l'authentification Microsoft | `bool` | `false` | no |
 | <a name="input_enable_logs_analytics"></a> [enable\_logs\_analytics](#input\_enable\_logs\_analytics) | Activer ou non les log analytics (permet une meilleurs analyse des évènements) | `bool` | `false` | no |
+| <a name="input_health_check_eviction_time_in_min"></a> [health\_check\_eviction\_time\_in\_min](#input\_health\_check\_eviction\_time\_in\_min) | The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between 2 and 10. Only valid in conjunction with health\_check\_path. | `number` | `null` | no |
+| <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | health\_check\_path | `string` | `null` | no |
 | <a name="input_http2_enabled"></a> [http2\_enabled](#input\_http2\_enabled) | Should the HTTP2 be enabled? | `bool` | `true` | no |
 | <a name="input_https_only"></a> [https\_only](#input\_https\_only) | Should the Linux Web App require HTTPS connections. | `bool` | `true` | no |
 | <a name="input_identity_type"></a> [identity\_type](#input\_identity\_type) | Type identité à activer sur la ressource ('UserAssigned' et 'SystemAssigned' sont les eules valeurs autorisées) | `string` | `"SystemAssigned"` | no |
