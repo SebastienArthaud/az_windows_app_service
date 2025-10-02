@@ -25,7 +25,7 @@ resource "azurerm_windows_web_app" "webappwindows" {
     # Startup command
     app_command_line                  = var.app_command_line
     health_check_path                 = var.health_check_path
-    health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+    health_check_eviction_time_in_min = var.health_check_path != null ? var.health_check_eviction_time_in_min : null
 
 
     # Utilisation de l'UAI pour le pull d'images depuis ACR
@@ -160,7 +160,7 @@ resource "azurerm_windows_web_app_slot" "webappwindows_slot" {
     # Startup command
     app_command_line                  = var.app_command_line
     health_check_path                 = var.health_check_path
-    health_check_eviction_time_in_min = var.health_check_eviction_time_in_min
+    health_check_eviction_time_in_min = var.health_check_path != null ? var.health_check_eviction_time_in_min : null
 
 
     # Utilisation de l'UAI pour le pull d'images depuis ACR
