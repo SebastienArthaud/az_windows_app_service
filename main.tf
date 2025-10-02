@@ -69,8 +69,8 @@ resource "azurerm_windows_web_app" "webappwindows" {
       }
 
       active_directory_v2 {
-        allowed_applications        = [var.microsoft_v2_client_id]
-        client_id                   = var.microsoft_v2_client_id
+        allowed_applications        = [data.azuread_application.app_registration.client_id]
+        client_id                   = data.azuread_application.app_registration.client_id
         client_secret_setting_name  = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
         tenant_auth_endpoint        = "https://sts.windows.net/${var.microsoft_v2_tenant_id}/v2.0"
         www_authentication_disabled = false

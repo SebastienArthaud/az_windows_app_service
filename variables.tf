@@ -329,9 +329,9 @@ variable "enable_Microsoft_auth" {
   default     = false
 }
 
-variable "microsoft_v2_client_id" {
+variable "microsoft_auth_app_registration_name" {
   type        = string
-  description = "The OAuth 2.0 client ID that was created for the app used for authentication."
+  description = "The OAuth 2.0 app registration name that was created for the app used for authentication."
   default     = null
 }
 

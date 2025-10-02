@@ -1,13 +1,17 @@
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | >=3.6.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.11 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | >=3.6.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.11 |
 
 ## Modules
 
@@ -22,6 +26,7 @@ No requirements.
 | [azurerm_monitor_diagnostic_setting.webappwindows](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting) | resource |
 | [azurerm_windows_web_app.webappwindows](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app) | resource |
 | [azurerm_windows_web_app_slot.webappwindows_slot](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app_slot) | resource |
+| [azuread_application.app_registration](https://registry.terraform.io/providers/hashicorp/azuread/latest/docs/data-sources/application) | data source |
 
 ## Inputs
 
@@ -52,7 +57,7 @@ No requirements.
 | <a name="input_dotnet_version"></a> [dotnet\_version](#input\_dotnet\_version) | Version de dotnet installé | `string` | `null` | no |
 | <a name="input_enable_Microsoft_auth"></a> [enable\_Microsoft\_auth](#input\_enable\_Microsoft\_auth) | Active ou non l'authentification Microsoft | `bool` | `false` | no |
 | <a name="input_enable_logs_analytics"></a> [enable\_logs\_analytics](#input\_enable\_logs\_analytics) | Activer ou non les log analytics (permet une meilleurs analyse des évènements) | `bool` | `false` | no |
-| <a name="input_health_check_eviction_time_in_min"></a> [health\_check\_eviction\_time\_in\_min](#input\_health\_check\_eviction\_time\_in\_min) | The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between 2 and 10. Only valid in conjunction with health\_check\_path. | `number` | `null` | no |
+| <a name="input_health_check_eviction_time_in_min"></a> [health\_check\_eviction\_time\_in\_min](#input\_health\_check\_eviction\_time\_in\_min) | The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between 2 and 10. Only valid in conjunction with health\_check\_path. | `number` | `5` | no |
 | <a name="input_health_check_path"></a> [health\_check\_path](#input\_health\_check\_path) | health\_check\_path | `string` | `null` | no |
 | <a name="input_http2_enabled"></a> [http2\_enabled](#input\_http2\_enabled) | Should the HTTP2 be enabled? | `bool` | `true` | no |
 | <a name="input_https_only"></a> [https\_only](#input\_https\_only) | Should the Linux Web App require HTTPS connections. | `bool` | `true` | no |
@@ -66,8 +71,8 @@ No requirements.
 | <a name="input_map_storage_account"></a> [map\_storage\_account](#input\_map\_storage\_account) | Définis ou non si la webapp est mappée à un file share, attention si activée, les variables mount\_storage\_account\_name, mount\_storage\_account\_access\_key, mount\_name et mount\_share\_name deviennent obligatoires | `bool` | `false` | no |
 | <a name="input_metric_category"></a> [metric\_category](#input\_metric\_category) | The name of a Diagnostic Metric Category for this Resource | `string` | `"AllMetrics"` | no |
 | <a name="input_metric_enabled"></a> [metric\_enabled](#input\_metric\_enabled) | Is this Diagnostic Metric enabled? Defaults to true | `bool` | `false` | no |
+| <a name="input_microsoft_auth_app_registration_name"></a> [microsoft\_auth\_app\_registration\_name](#input\_microsoft\_auth\_app\_registration\_name) | The OAuth 2.0 app registration name that was created for the app used for authentication. | `string` | `null` | no |
 | <a name="input_microsoft_v2_auth_secret"></a> [microsoft\_v2\_auth\_secret](#input\_microsoft\_v2\_auth\_secret) | Secret utilisé par la webapp pour s'authentifier avec le SPN qui fera la passerelle d'authentification entre la webapp et ENtra ID | `string` | `null` | no |
-| <a name="input_microsoft_v2_client_id"></a> [microsoft\_v2\_client\_id](#input\_microsoft\_v2\_client\_id) | The OAuth 2.0 client ID that was created for the app used for authentication. | `string` | `null` | no |
 | <a name="input_microsoft_v2_tenant_id"></a> [microsoft\_v2\_tenant\_id](#input\_microsoft\_v2\_tenant\_id) | Tenant ID utilisé en cas d'authentification MS activée | `string` | `"f30ac191-b8b4-45f2-9a9b-e5466cb90c2f"` | no |
 | <a name="input_minimum_tls_version"></a> [minimum\_tls\_version](#input\_minimum\_tls\_version) | The configures the minimum version of TLS required for SSL requests. Possible values include: 1.0, 1.1, 1.2 and 1.3 | `string` | `"1.3"` | no |
 | <a name="input_mount_name"></a> [mount\_name](#input\_mount\_name) | Nom du montage au niveau de la webapp | `string` | `null` | no |
